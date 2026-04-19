@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>私の取扱説明書 — CliftonStrengths34</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap');
+
+    :root {
+      --strategic:  #2d8c6e;
+      --strategic-light: #e8f5f0;
+      --executing:  #6b3fa0;
+      --executing-light: #f0ebf8;
+      --influencing: #e07b20;
+      --influencing-light: #fdf0e3;
+      --relationship: #2e6bbf;
+      --relationship-light: #e8f0fb;
+      --bg: #f8f7f4;
+      --text: #1a1a1a;
+      --text-sub: #555;
+      --card-bg: #ffffff;
+      --radius: 16px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── HERO ────────────────────────────────── */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #1a3a2a 0%, #2d5a40 40%, #1e4060 100%);
+      color: #fff;
+      text-align: center;
+      padding: 100px 24px 80px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px;
+      padding: 6px 20px;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(36px, 7vw, 72px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .hero-sub {
+      font-size: clamp(15px, 2.5vw, 20px);
+      opacity: 0.8;
+      max-width: 560px;
+      margin: 0 auto 48px;
+    }
+    .domain-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--strategic);
+      border-radius: 100px;
+      padding: 12px 28px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .domain-pill span { font-size: 24px; }
+
+    /* ── DNA BAR ─────────────────────────────── */
+    .dna-bar {
+      height: 12px;
+      display: flex;
+    }
+    .dna-bar div { flex: 1; }
+
+    /* ── SECTION COMMON ─────────────────────── */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--strategic);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 40px;
+    }
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, var(--strategic), var(--relationship), transparent);
+      max-width: 900px;
+      margin: 0 auto;
+      opacity: 0.3;
+    }
+
+    /* ── TOP5 CARDS ──────────────────────────── */
+    .top5-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .strength-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .strength-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+    .strength-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+    .strength-card.strategic::before { background: var(--strategic); }
+    .strength-card.executing::before { background: var(--executing); }
+    .strength-card.influencing::before { background: var(--influencing); }
+    .strength-card.relationship::before { background: var(--relationship); }
+
+    .card-rank {
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 4px;
+      opacity: 0.08;
+      position: absolute;
+      top: 16px; right: 20px;
+    }
+    .strategic .card-rank { color: var(--strategic); }
+    .executing .card-rank { color: var(--executing); }
+    .influencing .card-rank { color: var(--influencing); }
+    .relationship .card-rank { color: var(--relationship); }
+
+    .card-domain-badge {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      border-radius: 100px;
+      padding: 3px 10px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .strategic .card-domain-badge { background: var(--strategic-light); color: var(--strategic); }
+    .executing .card-domain-badge { background: var(--executing-light); color: var(--executing); }
+    .influencing .card-domain-badge { background: var(--influencing-light); color: var(--influencing); }
+    .relationship .card-domain-badge { background: var(--relationship-light); color: var(--relationship); }
+
+    .card-name {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .card-desc { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+
+    /* ── MANUAL SECTIONS ─────────────────────── */
+    .manual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 640px) { .manual-grid { grid-template-columns: 1fr; } }
+
+    .manual-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+    .manual-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .manual-card h3 .icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .icon-green { background: var(--strategic-light); }
+    .icon-purple { background: var(--executing-light); }
+    .icon-orange { background: var(--influencing-light); }
+    .icon-blue { background: var(--relationship-light); }
+
+    .manual-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .manual-card ul li {
+      font-size: 14px;
+      color: var(--text-sub);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .manual-card ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--strategic);
+      font-size: 11px;
+      top: 3px;
+    }
+
+    /* ── DOMAIN OVERVIEW ─────────────────────── */
+    .domain-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    @media (max-width: 640px) { .domain-row { grid-template-columns: 1fr 1fr; } }
+
+    .domain-card {
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+    }
+    .domain-card.strategic { background: var(--strategic-light); border: 2px solid var(--strategic); }
+    .domain-card.executing { background: var(--executing-light); border: 1px solid #d8ccec; }
+    .domain-card.influencing { background: var(--influencing-light); border: 1px solid #f0d5b8; }
+    .domain-card.relationship { background: var(--relationship-light); border: 1px solid #c0d4f0; }
+
+    .domain-count {
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .strategic .domain-count { color: var(--strategic); }
+    .executing .domain-count { color: var(--executing); }
+    .influencing .domain-count { color: var(--influencing); }
+    .relationship .domain-count { color: var(--relationship); }
+
+    .domain-name { font-size: 12px; font-weight: 700; margin-top: 6px; }
+
+    /* ── ALL 34 TABLE ────────────────────────── */
+    .all34-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+    }
+    .chip {
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .chip-rank {
+      font-size: 11px;
+      font-weight: 700;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .chip.strategic { background: var(--strategic-light); }
+    .chip.executing { background: var(--executing-light); }
+    .chip.influencing { background: var(--influencing-light); }
+    .chip.relationship { background: var(--relationship-light); }
+    .chip.strategic .chip-rank { background: var(--strategic); color: #fff; }
+    .chip.executing .chip-rank { background: var(--executing); color: #fff; }
+    .chip.influencing .chip-rank { background: var(--influencing); color: #fff; }
+    .chip.relationship .chip-rank { background: var(--relationship); color: #fff; }
+
+    /* ── QUOTE ───────────────────────────────── */
+    .quote-block {
+      background: linear-gradient(135deg, var(--strategic) 0%, #1e5080 100%);
+      border-radius: 20px;
+      padding: 48px 40px;
+      color: #fff;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-block::before {
+      content: '"';
+      font-size: 200px;
+      position: absolute;
+      top: -40px; left: 20px;
+      opacity: 0.08;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    .quote-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(18px, 3vw, 24px);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .quote-sub { font-size: 13px; opacity: 0.7; }
+
+    /* ── FOOTER ──────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      font-size: 12px;
+      color: #999;
+      border-top: 1px solid #e8e5e0;
+    }
+
+    /* ── ANIMATIONS ──────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease both; }
+    .fade-up:nth-child(1) { animation-delay: 0.1s; }
+    .fade-up:nth-child(2) { animation-delay: 0.2s; }
+    .fade-up:nth-child(3) { animation-delay: 0.3s; }
+    .fade-up:nth-child(4) { animation-delay: 0.4s; }
+    .fade-up:nth-child(5) { animation-delay: 0.5s; }
+
+    /* ── NAV ─────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(248,247,244,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 16px;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text-sub);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      transition: all 0.2s;
+    }
+    nav a:hover { background: var(--strategic-light); color: var(--strategic); }
+  </style>
+</head>
+<body>
+
+<!-- ── DNA COLOR BAR ── -->
+<div class="dna-bar">
+  <div style="background:#2d8c6e"></div><div style="background:#3a9c7e"></div>
+  <div style="background:#48ac8e"></div><div style="background:#2d8c6e"></div>
+  <div style="background:#2e6bbf"></div><div style="background:#3e7bcf"></div>
+  <div style="background:#2e6bbf"></div><div style="background:#e07b20"></div>
+  <div style="background:#f08b30"></div><div style="background:#e07b20"></div>
+  <div style="background:#6b3fa0"></div><div style="background:#7b4fb0"></div>
+  <div style="background:#2d8c6e"></div><div style="background:#2e6bbf"></div>
+  <div style="background:#2d8c6e"></div><div style="background:#6b3fa0"></div>
+  <div style="background:#2d8c6e"></div><div style="background:#e07b20"></div>
+  <div style="background:#2e6bbf"></div><div style="background:#2d8c6e"></div>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-badge">CliftonStrengths®34 Personal Manual</div>
+  <h1 class="fade-up">私の<br>取扱説明書</h1>
+  <p class="hero-sub fade-up">
+    クリフトンストレングス34の結果を元に作成した、<br>私という人間の「設計書」です。
+  </p>
+  <div class="domain-pill fade-up">
+    <span>🧠</span> 支配的領域：戦略的思考力
+  </div>
+</section>
+
+<!-- ── STICKY NAV ── -->
+<nav>
+  <a href="#top5">TOP5強み</a>
+  <a href="#manual">取扱説明書</a>
+  <a href="#domains">領域分布</a>
+  <a href="#all34">全34資質</a>
+</nav>
+
+<!-- ── INTRO ── -->
+<div class="section" style="padding-bottom:0;">
+  <p class="section-label">About Me</p>
+  <h2 class="section-title">私は「情報を集め、パターンを見つけ、<br>最高を追い求める」人間です。</h2>
+  <p style="color:var(--text-sub); max-width:640px; font-size:15px; line-height:1.9;">
+    戦略的思考力が支配的な領域であり、情報・知識・アイデアを吸収・分析し、
+    最善の道を見つけることに強い駆動力を持っています。
+    同時に、信念と責任感という実行力の資質が「やると決めたことを最後までやり切る」軸を支えています。
+  </p>
+</div>
+
+<!-- ── TOP 5 ── -->
+<div class="section" id="top5">
+  <p class="section-label">Signature Themes</p>
+  <h2 class="section-title">TOP 5 強み資質</h2>
+  <div class="top5-grid">
+
+    <div class="strength-card influencing fade-up">
+      <div class="card-rank">1</div>
+      <span class="card-domain-badge">影響力</span>
+      <div class="card-name">最上志向</div>
+      <p class="card-desc">
+        平均的なものを優れたものに変えることに情熱を注ぐ。
+        「なんとなく良い」では満足せず、卓越を追い求める。
+        強みを見つけて磨くことが本能的な行動パターン。
+      </p>
+    </div>
+
+    <div class="strength-card strategic fade-up">
+      <div class="card-rank">2</div>
+      <span class="card-domain-badge">戦略的思考力</span>
+      <div class="card-name">収集心</div>
+      <p class="card-desc">
+        情報・知識・物事を収集し蓄積することへの強い欲求。
+        多様な情報を取り込み、必要なときに引き出す「知の倉庫」。
+        好奇心が行動エンジン。
+      </p>
+    </div>
+
+    <div class="strength-card strategic fade-up">
+      <div class="card-rank">3</div>
+      <span class="card-domain-badge">戦略的思考力</span>
+      <div class="card-name">戦略性</div>
+      <p class="card-desc">
+        複雑な状況を素早く見通し、最善のルートを発見する。
+        パターンを直感的に把握し、障害を先読みして回避策を用意する。
+        「Why not?」より「How?」に動く。
+      </p>
+    </div>
+
+    <div class="strength-card strategic fade-up">
+      <div class="card-rank">4</div>
+      <span class="card-domain-badge">戦略的思考力</span>
+      <div class="card-name">着想</div>
+      <p class="card-desc">
+        一見無関係なものをつなぎ、新しいアイデアを生む。
+        「それって実はこういうことでは？」という視点の転換が得意。
+        概念的・創造的思考が快感。
+      </p>
+    </div>
+
+    <div class="strength-card strategic fade-up">
+      <div class="card-rank">5</div>
+      <span class="card-domain-badge">戦略的思考力</span>
+      <div class="card-name">内省</div>
+      <p class="card-desc">
+        深く考え、自己と対話する時間を必要とする。
+        内側で思考を整理し、本質を見極めてから動く。
+        「なぜ？」を問い続けることが思考のエンジン。
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── MANUAL ── -->
+<div class="section" id="manual">
+  <p class="section-label">User's Guide</p>
+  <h2 class="section-title">取扱説明書</h2>
+  <div class="manual-grid">
+
+    <div class="manual-card">
+      <h3>
+        <div class="icon icon-green">⚡</div>
+        こんなときにエネルギーが出る
+      </h3>
+      <ul>
+        <li>新しい情報・知識に触れるとき</li>
+        <li>「なぜ？」「どうすれば？」を深く考えるとき</li>
+        <li>現状より優れた方法・仕組みを考案するとき</li>
+        <li>点と点がつながって「そうか！」となる瞬間</li>
+        <li>誰かの成長・変化に立ち会えるとき</li>
+        <li>自分のアイデアが形になるとき</li>
+      </ul>
+    </div>
+
+    <div class="manual-card">
+      <h3>
+        <div class="icon icon-purple">🔋</div>
+        こんなことでエネルギーが消耗する
+      </h3>
+      <ul>
+        <li>意味のない繰り返し作業・ルーティンの強制</li>
+        <li>考える時間なしに即答を求められる場面</li>
+        <li>「平均でいい」「そこそこでOK」という空気</li>
+        <li>情報が少ないまま決断を迫られること</li>
+        <li>アイデアを頭ごなしに否定される状況</li>
+      </ul>
+    </div>
+
+    <div class="manual-card">
+      <h3>
+        <div class="icon icon-orange">💬</div>
+        うまく協力するための接し方
+      </h3>
+      <ul>
+        <li>「あなたならどう思う？」と深掘りする問いを</li>
+        <li>アイデアを出したらまず「面白いね」と受け取る</li>
+        <li>背景・文脈・目的を最初に共有してほしい</li>
+        <li>一人で考える時間と余白を確保してほしい</li>
+        <li>「最高の結果」を目指す姿勢を一緒に持ってほしい</li>
+        <li>なぜそうするのか「理由」を教えてほしい</li>
+      </ul>
+    </div>
+
+    <div class="manual-card">
+      <h3>
+        <div class="icon icon-blue">🌟</div>
+        私が自然にやること
+      </h3>
+      <ul>
+        <li>物事の本質・構造を抽象化して考える</li>
+        <li>複数の選択肢を並べてベストを選ぶ</li>
+        <li>気になる情報を片っ端から収集・保存する</li>
+        <li>約束したことは最後まで責任を持って実行する</li>
+        <li>人の可能性・成長を信じてサポートする</li>
+        <li>状況に応じて柔軟にアプローチを変える</li>
+      </ul>
+    </div>
+
+    <div class="manual-card">
+      <h3>
+        <div class="icon icon-green">⚠️</div>
+        注意が必要なブラインドスポット
+      </h3>
+      <ul>
+        <li>完璧を追い求めすぎて完成が遅くなることがある</li>
+        <li>情報収集が終わらず行動開始が遅れがち</li>
+        <li>内省が深すぎて外から見ると考えすぎに映る</li>
+        <li>アイデアが多すぎて相手が追いつけないことも</li>
+        <li>責任感から一人で抱え込みすぎることがある</li>
+      </ul>
+    </div>
+
+    <div class="manual-card">
+      <h3>
+        <div class="icon icon-blue">🎯</div>
+        私が最大の力を発揮できる環境
+      </h3>
+      <ul>
+        <li>「なぜ？」を問い続けていい知的な場</li>
+        <li>学びと成長が奨励される文化・チーム</li>
+        <li>クオリティにこだわることが評価される環境</li>
+        <li>自分のアイデアと戦略を試せる裁量がある仕事</li>
+        <li>深く考えてから実行できるペースの仕事</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── QUOTE ── -->
+<div style="padding: 0 24px;">
+  <div class="quote-block">
+    <p class="quote-text">
+      「情報を集め、パターンを見つけ、<br>
+      最善の道を戦略的に切り拓く。<br>
+      そして約束したことには、最後まで責任を持つ。」
+    </p>
+    <p class="quote-sub">— 私の資質が語る、私らしい生き方</p>
+  </div>
+</div>
+
+<!-- ── DOMAINS ── -->
+<div class="section" id="domains" style="padding-top:0;">
+  <p class="section-label">Domain Distribution</p>
+  <h2 class="section-title">4つの領域の分布</h2>
+  <p style="color:var(--text-sub); font-size:14px; max-width:600px;">
+    TOP10の資質がどの領域に集中しているかを見ると、私の強みの傾向が分かります。
+    戦略的思考力が突出しており、次いで人間関係構築力が続きます。
+  </p>
+  <div class="domain-row">
+    <div class="domain-card strategic">
+      <div class="domain-count">5</div>
+      <div class="domain-name" style="color:var(--strategic);">戦略的思考力</div>
+      <div style="font-size:11px; color:var(--text-sub); margin-top:6px;">収集心・戦略性・着想・内省・分析思考</div>
+    </div>
+    <div class="domain-card relationship">
+      <div class="domain-count">3</div>
+      <div class="domain-name" style="color:var(--relationship);">人間関係構築力</div>
+      <div style="font-size:11px; color:var(--text-sub); margin-top:6px;">成長促進・適応性・運命思考</div>
+    </div>
+    <div class="domain-card executing">
+      <div class="domain-count">2</div>
+      <div class="domain-name" style="color:var(--executing);">実行力</div>
+      <div style="font-size:11px; color:var(--text-sub); margin-top:6px;">信念・責任感</div>
+    </div>
+    <div class="domain-card influencing">
+      <div class="domain-count">1</div>
+      <div class="domain-name" style="color:var(--influencing);">影響力</div>
+      <div style="font-size:11px; color:var(--text-sub); margin-top:6px;">最上志向</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── ALL 34 ── -->
+<div class="section" id="all34">
+  <p class="section-label">All 34 Themes</p>
+  <h2 class="section-title">全34資質ランキング</h2>
+  <div class="all34-grid">
+    <!-- Rank 1–34 -->
+    <div class="chip influencing"><div class="chip-rank">1</div> 最上志向</div>
+    <div class="chip strategic"><div class="chip-rank">2</div> 収集心</div>
+    <div class="chip strategic"><div class="chip-rank">3</div> 戦略性</div>
+    <div class="chip strategic"><div class="chip-rank">4</div> 着想</div>
+    <div class="chip strategic"><div class="chip-rank">5</div> 内省</div>
+    <div class="chip relationship"><div class="chip-rank">6</div> 成長促進</div>
+    <div class="chip executing"><div class="chip-rank">7</div> 信念</div>
+    <div class="chip executing"><div class="chip-rank">8</div> 責任感</div>
+    <div class="chip relationship"><div class="chip-rank">9</div> 適応性</div>
+    <div class="chip relationship"><div class="chip-rank">10</div> 運命思考</div>
+    <div class="chip executing"><div class="chip-rank">11</div> アレンジ</div>
+    <div class="chip relationship"><div class="chip-rank">12</div> 調和性</div>
+    <div class="chip relationship"><div class="chip-rank">13</div> ポジティブ</div>
+    <div class="chip relationship"><div class="chip-rank">14</div> 包含</div>
+    <div class="chip influencing"><div class="chip-rank">15</div> 社交性</div>
+    <div class="chip relationship"><div class="chip-rank">16</div> 共感性</div>
+    <div class="chip strategic"><div class="chip-rank">17</div> 学習欲</div>
+    <div class="chip relationship"><div class="chip-rank">18</div> 親密性</div>
+    <div class="chip influencing"><div class="chip-rank">19</div> コミュニケーション</div>
+    <div class="chip influencing"><div class="chip-rank">20</div> 活発性</div>
+    <div class="chip influencing"><div class="chip-rank">21</div> 自己確信</div>
+    <div class="chip executing"><div class="chip-rank">22</div> 慎重さ</div>
+    <div class="chip executing"><div class="chip-rank">23</div> 公平性</div>
+    <div class="chip strategic"><div class="chip-rank">24</div> 未来志向</div>
+    <div class="chip influencing"><div class="chip-rank">25</div> 自我</div>
+    <div class="chip executing"><div class="chip-rank">26</div> 規律性</div>
+    <div class="chip strategic"><div class="chip-rank">27</div> 分析思考</div>
+    <div class="chip influencing"><div class="chip-rank">28</div> 指令性</div>
+    <div class="chip relationship"><div class="chip-rank">29</div> 個別化</div>
+    <div class="chip executing"><div class="chip-rank">30</div> 目標志向</div>
+    <div class="chip strategic"><div class="chip-rank">31</div> 原点思考</div>
+    <div class="chip influencing"><div class="chip-rank">32</div> 競争性</div>
+    <div class="chip executing"><div class="chip-rank">33</div> 回復志向</div>
+    <div class="chip executing"><div class="chip-rank">34</div> 達成欲</div>
+  </div>
+
+  <!-- Legend -->
+  <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:28px;">
+    <div style="display:flex; align-items:center; gap:6px; font-size:12px;">
+      <div style="width:12px;height:12px;border-radius:50%;background:var(--strategic);"></div> 戦略的思考力
+    </div>
+    <div style="display:flex; align-items:center; gap:6px; font-size:12px;">
+      <div style="width:12px;height:12px;border-radius:50%;background:var(--relationship);"></div> 人間関係構築力
+    </div>
+    <div style="display:flex; align-items:center; gap:6px; font-size:12px;">
+      <div style="width:12px;height:12px;border-radius:50%;background:var(--influencing);"></div> 影響力
+    </div>
+    <div style="display:flex; align-items:center; gap:6px; font-size:12px;">
+      <div style="width:12px;height:12px;border-radius:50%;background:var(--executing);"></div> 実行力
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>Based on CliftonStrengths®34 — Gallup, Inc. All rights reserved.</p>
+  <p style="margin-top:6px;">このページは個人的な取扱説明書として作成されたものです。</p>
+</footer>
+
+</body>
+</html>
